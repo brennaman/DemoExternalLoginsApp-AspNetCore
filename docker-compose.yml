@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  sql.data:
+    image: microsoft/mssql-server-linux:2017-latest
+
+  demoexternalloginsapp.web:
+    image: ${DOCKER_REGISTRY}demoexternalloginsappweb
+    build:
+      context: .
+      dockerfile: DemoExternalLoginsApp.Web/Dockerfile
+    depends_on:
+      - sql.data
