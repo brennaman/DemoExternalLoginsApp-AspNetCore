@@ -6,6 +6,7 @@ The following aritcles were referenced:
 <ul>
   <li>https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/?view=aspnetcore-2.1 </li>
   <li>https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/facebook-logins?view=aspnetcore-2.1&tabs=aspnetcore2x</li>
+  <li>(Azure Key Vault integration for storing Facebook App Secret) - https://docs.microsoft.com/en-us/aspnet/core/security/key-vault-configuration?view=aspnetcore-2.1&tabs=aspnetcore2x</li>
 </ul>
 </p>
 
