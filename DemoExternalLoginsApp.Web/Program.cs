@@ -19,6 +19,22 @@ namespace DemoExternalLoginsApp.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    var builtConfig = config.Build();
+
+                    var environment = builtConfig["ASPNETCORE_ENVIRONMENT"];
+                    var isDevelopment = environment == EnvironmentName.Development;
+                    
+                    if(!isDevelopment)
+                    {
+                        config.AddAzureKeyVault(
+                        $"https://{builtConfig["AZURE_KEY_VAULT_NAME"]}.vault.azure.net/",
+                        builtConfig["AZURE_KEY_VAULT_CLIENT_ID"],
+                        builtConfig["AZURE_KEY_VAULT_CLIENT_SECRET"]);
+                    }
+
+                })
                 .UseStartup<Startup>();
     }
 }

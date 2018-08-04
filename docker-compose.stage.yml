@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  sql.data:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+
+  demoexternalloginsapp.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Stage
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44355
+      - AZURE_KEY_VAULT_NAME=${STAGE_AZURE_KEY_VAULT_NAME}
+      - AZURE_KEY_CLIENT_ID=${STAGE_AZURE_KEY_CLIENT_ID}
+      - AZURE_KEY_CLIENT_SECRET=${STAGE_AZURE_KEY_CLIENT_SECRET}
+
+    ports:
+      - "49969:80"
+      - "44355:443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro

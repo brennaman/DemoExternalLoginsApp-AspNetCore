@@ -42,8 +42,8 @@ namespace DemoExternalLoginsApp.Web
 
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
-                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                facebookOptions.AppId = Configuration["FACEBOOK-SIGNON-APP-ID"];
+                facebookOptions.AppSecret = Configuration["FACEBOOK-SIGNON-APP-SECRET"];
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
