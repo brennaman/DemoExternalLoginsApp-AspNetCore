@@ -18,6 +18,3 @@ services:
     ports:
       - "49969:80"
       - "44355:443"
-    volumes:
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
