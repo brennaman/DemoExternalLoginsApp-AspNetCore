@@ -5,6 +5,7 @@ services:
     environment:
       - SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
 
   demoexternalloginsapp.web:
     environment:
