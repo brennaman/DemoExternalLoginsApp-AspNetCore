@@ -42,7 +42,7 @@ namespace DemoExternalLoginsApp.Web
 
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
-                facebookOptions.AppId = Configuration["FACEBOOK-SIGNON-APP-ID"];
+                facebookOptions.AppId = Configuration["FACEBOOK_SIGNON_APP_ID"];
                 facebookOptions.AppSecret = Configuration["FACEBOOK-SIGNON-APP-SECRET"];
             });
 

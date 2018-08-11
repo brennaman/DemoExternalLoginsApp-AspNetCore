@@ -2,11 +2,13 @@ version: '3.4'
 
 services:
   sql.data:
+    image: microsoft/mssql-server-linux:2017-latest
     environment:
       - SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
 
   demoexternalloginsapp.web:
+    image: brennamandemoeastuscreg.azurecr.io/demoexternalloginsappweb
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://+:443;http://+:80
@@ -14,6 +16,7 @@ services:
       - AZURE_KEY_VAULT_NAME=${PROD_AZURE_KEY_VAULT_NAME}
       - AZURE_KEY_VAULT_CLIENT_ID=${PROD_AZURE_KEY_VAULT_CLIENT_ID}
       - AZURE_KEY_VAULT_CLIENT_SECRET=${PROD_AZURE_KEY_VAULT_CLIENT_SECRET}
+      - FACEBOOK_SIGNON_APP_ID=${PROD_FACEBOOK_SIGNON_APP_ID}
     ports:
       - "49969:80"
       - "44355:443"
